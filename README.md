@@ -1,4 +1,4 @@
-# Book Catalog
+# Book Catalogue
 
 ### [Demo](https://cerulean-heliotrope-e903fd.netlify.app/)
 
