@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+
+:root {
+    --white: #ffffff;
+    --green: #27694d;
+    --yellow: #daa520;
+    --red: #ef4444;
+    --brown: #383129;
+    --title: #2a2622;
+
+    --title: #2b2622;
+    --text: #7c736a;
+    --border: #E7E2DA;
+
+    --background: #f7f4ef;
+    --card: #fcfaf7;
+    --secondary: #eeebe4;
+    --shadow: #c4b8a8;
+    --favorite: #eaf0ed;
+}
+
+:root.dark-theme {
+    --background: #1a1632;
+    --card: #264260;
+    --shadow: #030405;
+    --title: #b3deff;
+    --text: #e5eeff;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: var(--background);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: var(--shadow) solid 1px;
+    padding: .5rem;
+    justify-content: space-between;
+}
+
+.logo-bgr {
+    width: 30px;
+    height: 30px;
+    background-color: var(--green);
+    border-radius: 6px;
+    padding: 3px;
+    box-sizing: border-box;
+    margin-right: 1rem;
+}
+
+header h1 {
+    font-size: large;
+    color: var(--title);
+    margin: 0;
+}
+
+h2 {
+    color: var(--title);
+}
+
+.header-logo {
+    display: flex;
+}
+
+.under-title-text {
+    color: var(--text);
+}
+
+.smaller {
+    font-size: smaller
+}
+
+main {
+    padding: .5rem;
+}
+
+.search-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.search-container {
+    width: 100%;
+    margin: 2rem auto;
+}
+
+#searchInput {
+    padding: 12px 20px 12px 40px;
+    box-sizing: border-box;
+    width: 50%;
+    margin: auto;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 16px;
+    background-image: url(./assets/search.svg);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.search-btn {
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 3px var(--shadow);
+    transition: all .2s;
+}
+
+.search-btn:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+.loader {
+    display: none;
+    color: var(--title);
+}
+
+.cards-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem 1rem;
+    margin: 1rem 0;
+    color: var(--title);
+}
+
+.book-card {
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card);
+    box-shadow: 5px 5px 5px var(--shadow);
+    position: relative;
+}
+
+.coverImg {
+    width: -webkit-fill-available;
+    width: stretch;
+    height: 70%;
+    object-fit: cover;
+}
+
+.card-description {
+    padding: 0 .5rem;
+    box-sizing: border-box;
+    display: grid;
+}
+
+.card-description h3 {
+    color: var(--title);
+}
+
+.hidden {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.favorite-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--favorite);
+    border-radius: 50%;
+    padding: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+@media (max-width: 450px) {
+    #searchInput::placeholder {
+        font-size: small;
+    }
+}

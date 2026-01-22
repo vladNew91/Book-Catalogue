@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./src/assets/book.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book catalogue</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="header-logo">
+        <span class="logo-bgr"><img src="./src/assets/book.svg" alt="App logo" /></span>
+        <div class="headerTitle">
+          <h1>The Library</h1>
+          <span class="under-title-text smaller">Discover your next favorite book</span>
+        </div>
+      </div>
+
+      <div>
+        <label class="switch">
+          <input type="checkbox" name="toggle">
+          <span class="slider round theme-btn"></span>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <section class="search-section">
+        <h2>
+          Discover Your Next Great Read
+        </h2>
+        <span class="under-title-text">
+          Search millions of books, build your personal library, and never lose track of what to read next.
+        </span>
+        <div class="search-container">
+          <input type="text" placeholder="Search for books..." id="searchInput">
+          <button class="search-btn">Search</button>
+        </div>
+      </section>
+
+      <div class="loader">Loading...</div>
+      <section class="cards-section">
+        <!-- Data will be injected here -->
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="./src/components/themeSwitcher.js"></script>
+</body>
+
+</html>
