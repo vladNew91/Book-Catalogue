@@ -1,6 +1,6 @@
 # Book Catalogue
 
-### [Demo](https://cerulean-heliotrope-e903fd.netlify.app/)
+### [Demo](https://vladnew91-book-catalogue.netlify.app/)
 
 A simple web application for searching books using the Open Library API.
 
