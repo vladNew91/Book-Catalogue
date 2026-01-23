@@ -1,5 +1,5 @@
 import noCoverImg from "../assets/nocover.jpg";
-import favoriteIcon from "../assets/heart.svg";
+import { getTooltip } from "../helpers";
 
 
 const COVER_URL = `https://covers.openlibrary.org/b/id/`;
@@ -8,7 +8,6 @@ const cardsSection = document.querySelectorAll(".cards-section")[0];
 export const renderBooksCards = (data = []) => {
     // if empty input search will render "No books"
     if (!data.length) return cardsSection.innerHTML = "No books";
-    const isFavorite = false;
 
     const booksCardsHTML = data.map(book => {
         const card = document.createElement('div');
@@ -21,15 +20,12 @@ export const renderBooksCards = (data = []) => {
 
         card.innerHTML = `
             <img src="${coverUrl}" alt="Book cover" class="coverImg" loading="lazy">
-            <div class="favorite-btn" data-book-key="${book.key}">
-                ${isFavorite ? 'Remove from Favorites' : `<img alt="favorite" src=${favoriteIcon} />`}
-            </div>
             <div class="card-description">
-                <h3 class="smaller">${book.title}</h3>
-                <span class="under-title-text smaller hidden">
-                    ${book.author_name ? book.author_name.join(', ') : 'N/A'}
+                <h3 class="title">${book.title}</h3>
+                <span class="under-title-text hidden" title="${getTooltip(book.author_name)}">
+                    ${getTooltip(book.author_name)}
                 </span>
-                <span class="under-title-text smaller">
+                <span class="under-title-text responsive-textt">
                     ${book.first_publish_year || 'N/A'}
                 </span>
             </div>

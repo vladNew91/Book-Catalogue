@@ -1,5 +1,5 @@
 import { handleSearchBooks } from "./api";
-import { debounce } from "./helpers/debounce";
+import { debounce } from "./helpers";
 
 // get the input element and add the event listener
 const searchInput =  document.getElementById('searchInput');

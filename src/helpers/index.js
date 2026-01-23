@@ -7,3 +7,12 @@ export function debounce(fn, delay) {
         }, delay);
     };
 }
+
+/**
+ * @param {string} tooltip
+*/
+
+export function getTooltip(tooltip) {
+    if (!tooltip) return 'N/A';
+    return tooltip.join(', ');
+};
