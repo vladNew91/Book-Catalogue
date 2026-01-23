@@ -87,6 +87,10 @@ main {
     padding: .5rem;
 }
 
+.search-section > .under-title-text {
+    font-size: unset;
+}
+
 .search-section {
     display: flex;
     flex-direction: column;
