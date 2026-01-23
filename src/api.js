@@ -12,7 +12,7 @@ let controller;
 
 export async function handleSearchBooks(searchText) {
     // return alert if no search value
-    if (!searchText) alert("Enter your query");
+    if (!searchText) return alert("Enter your query");
     // If a previous request is pending, abort it
     if (controller) {
         controller.abort();

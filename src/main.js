@@ -3,6 +3,8 @@ import { debounce } from "./helpers";
 
 // get the input element and add the event listener
 const searchInput =  document.getElementById('searchInput');
+const searchBtn = document.querySelectorAll('.search-btn')[0];
+
 const getSearchInputValue = () => { 
     return searchInput.value;
 }
@@ -15,10 +17,11 @@ const debouncedSearch = debounce(handleSearchBooks, deleyTime);
 
 // add debounce
 searchInput.addEventListener("input", (e) => {
+  // disable search btn
+  searchBtn.disabled = true;
   // pass the input value to the debounced function
   debouncedSearch(e.target.value);
 });
 
 // get btn 'search' and make search request
-const searchBtn = document.querySelectorAll('.search-btn')[0];
 searchBtn.addEventListener('click', () => handleSearchBooks(getSearchInputValue()));
