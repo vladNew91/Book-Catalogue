@@ -23,8 +23,8 @@ export async function handleSearchBooks(searchText) {
     const signal = controller.signal;
 
     // turn on loader hide content
-    // loader.style.display = "grid";
-    // content.style.display = "none";
+    loader.style.display = "grid";
+    content.style.display = "none";
 
     await fetch(
         `${SEARCH_URL}${encodeURIComponent(searchText)}&limit=10`
