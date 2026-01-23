@@ -8,13 +8,23 @@ const SEARCH_URL = `https://openlibrary.org/search.json?q=`;
 
 const loader = document.querySelectorAll('.loader')[0];
 const content = document.querySelectorAll('.cards-section')[0];
+let controller;
 
 export async function handleSearchBooks(searchText) {
     // return alert if no search value
     if (!searchText) alert("Enter your query");
-    // turn on loader
-    loader.style.display = "grid";
-    content.style.display = "none";
+    // If a previous request is pending, abort it
+    if (controller) {
+        controller.abort();
+    }
+
+    // Create a new AbortController for the current request
+    controller = new AbortController();
+    const signal = controller.signal;
+
+    // turn on loader hide content
+    // loader.style.display = "grid";
+    // content.style.display = "none";
 
     await fetch(
         `${SEARCH_URL}${encodeURIComponent(searchText)}&limit=10`
@@ -27,7 +37,7 @@ export async function handleSearchBooks(searchText) {
 
             return data;
         }
-    ).then (result => {
+    ).then(result => {
         // render book cards in HTML
         renderBooksCards(result.docs);
         // set array of seaching books in storage
