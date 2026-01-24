@@ -1,7 +1,7 @@
 const themeSwitcherBtn = document.querySelectorAll('.theme-btn')[0];
 const currentTheme = localStorage.getItem('theme');
 
-// Apply the stored theme immediately on script load
+// Apply stored theme immediately
 (function applyStoredTheme() {
     if (currentTheme !== 'dark') return;
     document.documentElement.classList.add('dark-theme');

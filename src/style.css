@@ -87,7 +87,7 @@ main {
     padding: .5rem;
 }
 
-.search-section > .under-title-text {
+.search-section>.under-title-text {
     font-size: unset;
 }
 
